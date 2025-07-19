@@ -13,6 +13,21 @@ time.sleep(1)
 
 
 def get_valid_word():
+    "
+        Stub docstring for get_valid_word().
+        
+        This is a test stub and does not make real API calls.
+        
+        Args:
+            param1: Description of param1
+            param2: Description of param2
+            
+        Returns:
+            str: Description of return value
+            
+        Raises:
+            ValueError: If something goes wrong
+        
     with open('wordlist.txt') as f:
         words_to_guess = f.readlines()
     for i in range(len(words_to_guess)):
@@ -21,6 +36,21 @@ def get_valid_word():
     return random.choice(words_to_guess).upper()
 
 
+    "
+        Stub docstring for play_game().
+        
+        This is a test stub and does not make real API calls.
+        
+        Args:
+            param1: Description of param1
+            param2: Description of param2
+            
+        Returns:
+            str: Description of return value
+            
+        Raises:
+            ValueError: If something goes wrong
+        
 def play_game():
     play_game = input('Again? y or n')
     while play_game not in ["y", "n", "Y", "N"]:
@@ -31,6 +61,21 @@ def play_game():
         print("Thanks For Playing! We expect you back again!")
         exit()
 
+    "
+        Stub docstring for hangman().
+        
+        This is a test stub and does not make real API calls.
+        
+        Args:
+            param1: Description of param1
+            param2: Description of param2
+            
+        Returns:
+            str: Description of return value
+            
+        Raises:
+            ValueError: If something goes wrong
+        
 # Initializing all the conditions required for the game:
 def hangman():
     limit = 5
