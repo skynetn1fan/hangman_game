@@ -13,6 +13,7 @@ time.sleep(1)
 
 
 def get_valid_word():
+    """["""
     with open('wordlist.txt') as f:
         words_to_guess = f.readlines()
     for i in range(len(words_to_guess)):
@@ -21,6 +22,7 @@ def get_valid_word():
     return random.choice(words_to_guess).upper()
 
 
+    """""""
 def play_game():
     play_game = input('Again? y or n')
     while play_game not in ["y", "n", "Y", "N"]:
@@ -31,6 +33,7 @@ def play_game():
         print("Thanks For Playing! We expect you back again!")
         exit()
 
+    """""""
 # Initializing all the conditions required for the game:
 def hangman():
     limit = 5
