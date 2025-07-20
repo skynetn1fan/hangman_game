@@ -13,7 +13,7 @@ time.sleep(1)
 
 
 def get_valid_word():
-    with open('wordlist.txt') as f:
+    with open("wordlist.txt") as f:
         words_to_guess = f.readlines()
     for i in range(len(words_to_guess)):
         words_to_guess[i] = words_to_guess[i][0:-1]
@@ -22,7 +22,7 @@ def get_valid_word():
 
 
 def play_game():
-    play_game = input('Again? y or n')
+    play_game = input("Again? y or n")
     while play_game not in ["y", "n", "Y", "N"]:
         play_game = input("Do You want to play again? y = yes, n = no \n")
     if play_game == "y":
@@ -30,6 +30,7 @@ def play_game():
     elif play_game == "n":
         print("Thanks For Playing! We expect you back again!")
         exit()
+
 
 # Initializing all the conditions required for the game:
 def hangman():
@@ -40,12 +41,14 @@ def hangman():
     used_letters = set()
 
     length = len(word)
-    display = '_ ' * length
+    display = "_ " * length
     letters_used = set()
 
     while limit > 0 and len(word_letters) > 0:
 
-        print(f'You have used the following letters: {letters_used} and have {limit} lives left')
+        print(
+            f"You have used the following letters: {letters_used} and have {limit} lives left"
+        )
         guess = input("This is the Hangman Word: " + display + " Enter your guess: \n")
         guess = guess.strip().upper()
         letters_used.add(guess)
@@ -59,15 +62,16 @@ def hangman():
                 display[place] = guess
                 word_letters.remove(guess)
             else:
-                print('You have already tried this one')
+                print("You have already tried this one")
         else:
             limit -= 1
-            print('That letter is not in the word, try again.')
+            print("That letter is not in the word, try again.")
 
-    if limit==0:
-        print('Sorry you ran out of lives, it\'s over')
-    elif len(word_letters) ==0:
-        print('Yaey, you did it!')
+    if limit == 0:
+        print("Sorry you ran out of lives, it's over")
+    elif len(word_letters) == 0:
+        print("Yaey, you did it!")
         play_game()
+
 
 hangman()
