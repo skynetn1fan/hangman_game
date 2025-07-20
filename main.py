@@ -13,7 +13,20 @@ time.sleep(1)
 
 
 def get_valid_word():
+
     with open('wordlist.txt') as f:
+    """Get a valid word from a word list file.
+
+    Reads a list of words from 'wordlist.txt', removes any trailing newline characters,
+    and selects a random word from the list, converting it to uppercase.
+
+    Returns:
+        str: A randomly selected uppercase word from the word list.
+
+    Raises:
+        FileNotFoundError: If 'wordlist.txt' does not exist.
+        IOError: If there is an error reading the file.
+    """
         words_to_guess = f.readlines()
     for i in range(len(words_to_guess)):
         words_to_guess[i] = words_to_guess[i][0:-1]
@@ -22,7 +35,17 @@ def get_valid_word():
 
 
 def play_game():
+
     play_game = input('Again? y or n')
+    """Prompt the user to decide whether to play the game again.
+
+    Continuously prompts the user until a valid input ('y' or 'n') is received.
+    If 'y', the hangman game is restarted. If 'n', a farewell message is printed
+    and the program exits.
+
+    Returns:
+        None
+    """
     while play_game not in ["y", "n", "Y", "N"]:
         play_game = input("Do You want to play again? y = yes, n = no \n")
     if play_game == "y":
@@ -33,7 +56,20 @@ def play_game():
 
 # Initializing all the conditions required for the game:
 def hangman():
+
     limit = 5
+    """Play a game of Hangman.
+
+    Initializes the game with a random word and allows the user to guess letters
+    until they either guess the word correctly or run out of lives. The game
+    displays the current state of the word and the letters used so far.
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the user input is invalid (e.g., more than one character or a number).
+    """
     word = get_valid_word()
     word_letters = set(word)
     alphabet = set(string.ascii_uppercase)
